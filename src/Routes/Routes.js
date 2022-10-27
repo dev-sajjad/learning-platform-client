@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blog from "../pages/Blog/Blog";
+import CheckOut from "../pages/CheckOut/CheckOut";
 import CourseDetails from "../pages/Courses/CourseDetails/CourseDetails";
 import Courses from "../pages/Courses/Courses";
 import Faq from "../pages/Faq/Faq";
@@ -25,13 +26,17 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://learning-edge-server.vercel.app/courses"),
       },
       {
         path: "/course/:id",
-        element: <PrivateRoutes><CourseDetails></CourseDetails></PrivateRoutes>,
+        element: (
+          <PrivateRoutes>
+            <CourseDetails></CourseDetails>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(`https://learning-edge-server.vercel.app/course/${params.id}`),
       },
       {
         path: "/blog",

@@ -8,7 +8,7 @@ const Courses = () => {
     const courses = useLoaderData();
 
     return (
-        <div className='flex w-11/12 mx-auto overflow-hidden mt-6  bg-slate-100'>
+        <div className='flex w-11/12 mx-auto overflow-hidden mt-6 mb-12 bg-slate-100'>
             <div className='flex-none hidden lg:block w-64'>
                <LeftSideNav></LeftSideNav>
             </div>

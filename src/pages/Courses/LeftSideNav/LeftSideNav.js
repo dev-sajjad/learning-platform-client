@@ -7,9 +7,9 @@ const LeftSideNav = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/course-categories")
-            .then(res => res.json())
-        .then(data => setCategories(data))
+        fetch("https://learning-edge-server.vercel.app/course-categories")
+          .then((res) => res.json())
+          .then((data) => setCategories(data));
     }, [])
 
     return (
