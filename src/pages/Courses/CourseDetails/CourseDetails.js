@@ -32,7 +32,7 @@ const CourseDetails = () => {
         <h3 className="text-center text-4xl text-rose-500 bg-rose-200 w-1/4 mx-auto font-semibold rounded-sm p-1 mt-6">
           Course Details
         </h3>
-        <div className="flex mt-4">
+        <div className="flex-col-reverse-reverse lg:flex mt-4 ">
           <div className="flex-1 p-2">
             <img className="rounded-md h-80 w-full" src={thumbnail} alt="" />
             <h2 className="text-3xl font-semibold text-black my-4">
@@ -69,7 +69,7 @@ const CourseDetails = () => {
               <p className="text-black">{description}</p>
             </div>
           </div>
-          <div className="flex-none w-96">
+          <div className="w-full flex-none lg:w-96">
             <div className="bg-green-200 border mt-1 divide-x p-3 ml-2 rounded-md">
               <h3 className="text-center text-2xl font-semibold text-green-700">
                 ${cost}
