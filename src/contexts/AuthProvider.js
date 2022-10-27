@@ -23,7 +23,12 @@ const AuthProvider = ({ children }) => {
   const providerLogin = (provider) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
-  };
+    };
+    
+    //facebook
+    const porviderLoginFacebook = (provider) => {
+        return signInWithPopup(auth, provider)
+    }
 
   const logOut = () => {
     setLoading(true);
@@ -53,8 +58,10 @@ const AuthProvider = ({ children }) => {
   // observer of the state change....if state null, state will be cleaned instant.
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
+        if (currentUser === null || currentUser.emailVerified) {
+            setUser(currentUser)
+        }
+      setLoading(false)
     });
     return () => unSubscribe();
   }, []);
@@ -70,6 +77,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     updateUserProfile,
     verifyEmail,
+    porviderLoginFacebook,
   };
 
   return (
