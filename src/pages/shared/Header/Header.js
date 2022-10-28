@@ -98,7 +98,25 @@ const Header = () => {
             </li>
             <li></li>
           </ul>
-         
+          <div>
+            <label className="label cursor-pointer">
+              {dark ? (
+                <span>
+                  <CiLight
+                    onClick={() => setDark(!dark)}
+                    className=" text-orange-500 font-bold text-2xl"
+                  />
+                </span>
+              ) : (
+                <span>
+                  <BsMoonStars
+                    onClick={() => setDark(!dark)}
+                    className="text-xl text-slate-800"
+                  />
+                </span>
+              )}
+            </label>
+          </div>
         </div>
         <div className="navbar-end">
           {user?.email ? (
