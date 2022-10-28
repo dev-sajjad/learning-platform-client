@@ -30,17 +30,29 @@ export const router = createBrowserRouter([
       },
       {
         path: "/course/:id",
-        element: (
-          <PrivateRoutes>
-            <CourseDetails></CourseDetails>
-          </PrivateRoutes>
-        ),
+        element: <CourseDetails></CourseDetails>,
         loader: ({ params }) =>
           fetch(`https://learning-edge-server.vercel.app/course/${params.id}`),
       },
       {
+        path: "/course-details/:id",
+        element: (
+          <PrivateRoutes>
+            <CheckOut></CheckOut>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://learning-edge-server-dev-sajjad.vercel.app/course-details/${params.id}`
+          ),
+      },
+      {
         path: "/blog",
-        element: <PrivateRoutes><Blog></Blog></PrivateRoutes>
+        element: (
+          <PrivateRoutes>
+            <Blog></Blog>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/faq",
@@ -57,4 +69,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
-

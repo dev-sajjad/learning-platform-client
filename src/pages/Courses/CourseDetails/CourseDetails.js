@@ -17,7 +17,8 @@ const CourseDetails = () => {
     const courseDetails = useLoaderData();
 
     const {
-        cost,
+      cost,
+      id,
        language,
         thumbnail,
         level,
@@ -148,7 +149,7 @@ const CourseDetails = () => {
                 <p className="text-black text-lg lg:text-xl">{language}</p>
               </div>
               <div>
-                <Link to="">
+                <Link to={`/course-details/${id}`}>
                   <button className="btn btn-outline btn-accent text-sm lg:text-lg font-semibold w-full mt-4 bottom-3">
                     Enroll Now
                   </button>
