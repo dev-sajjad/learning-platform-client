@@ -59,19 +59,23 @@ const Header = () => {
                 <Link to="/faq">FAQ</Link>
               </li>
               <li>
-                <div class="form-control">
-                  <label class="label cursor-pointer">
-                    <span class="label-text">
-                      <BsMoonStars className=" text-slate-800 text-2xl" />
-                    </span>
-                    <input
-                      type="checkbox"
-                      class="toggle toggle-accent"
-                      checked
-                    />
-                    <span class="label-text">
-                      <CiLight className=" text-orange-500 text-2xl" />
-                    </span>
+                <div>
+                  <label className="label cursor-pointer">
+                    {dark ? (
+                      <span>
+                        <CiLight
+                          onClick={() => setDark(!dark)}
+                          className=" text-orange-500 font-bold text-2xl"
+                        />
+                      </span>
+                    ) : (
+                      <span>
+                        <BsMoonStars
+                          onClick={() => setDark(!dark)}
+                          className="text-xl text-slate-800"
+                        />
+                      </span>
+                    )}
                   </label>
                 </div>
               </li>
@@ -124,7 +128,10 @@ const Header = () => {
               <>
                 {" "}
                 <p className="text-black font-thin">{user?.displayName}</p>
-                <div className="tooltip tooltip-bottom tooltip-success" data-tip={user?.displayName}>
+                <div
+                  className="tooltip tooltip-bottom tooltip-success"
+                  data-tip={user?.displayName}
+                >
                   <img
                     className="rounded-full h-8 w-8 mx-1"
                     src={user?.photoURL}

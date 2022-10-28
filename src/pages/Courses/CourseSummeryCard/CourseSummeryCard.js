@@ -54,7 +54,7 @@ const CourseSummeryCard = ({ course }) => {
       </div>
       <div>
         <Link to={`/course/${course_id}`}>
-          <button className="btn btn-outline btn-success w-full mt-4 bottom-3">
+          <button className="btn btn-outline btn-accent w-full mt-4 bottom-3">
             Course Details
           </button>
         </Link>

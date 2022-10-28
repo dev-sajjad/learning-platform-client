@@ -13,7 +13,7 @@ const Courses = () => {
                <LeftSideNav></LeftSideNav>
             </div>
             <div className='flex-auto '>
-                <h2 className='text-4xl font-bold text-center mb-6 text-rose-400'>Popular Courses</h2>
+                <h2 className='text-4xl font-bold text-center mb-6'><span className='text-black'>Popular</span> <span className='text-rose-400'>Courses</span></h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                     {
                         courses.map(course => <CourseSummeryCard key={course.id} course={course}></CourseSummeryCard>)

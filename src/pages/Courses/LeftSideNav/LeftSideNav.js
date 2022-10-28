@@ -13,7 +13,7 @@ const LeftSideNav = () => {
     }, [])
 
     return (
-      <div className="mt-14 bg-green-200 px-3 py-2 mr-5 rounded-md">
+      <div className="mt-14 bg-emerald-200 px-3 py-2 mr-5 rounded-md">
         <h2 className="my-3 text-black font-semibold text-xl text-center bg-rose-400 rounded-md p-2">All Courses</h2>
         <div>
           {categories.map((category) => (
