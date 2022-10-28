@@ -124,11 +124,13 @@ const Header = () => {
               <>
                 {" "}
                 <p className="text-black font-thin">{user?.displayName}</p>
-                <img
-                  className="rounded-full h-8 w-8 mx-1"
-                  src={user?.photoURL}
-                  alt=""
-                />
+                <div className="tooltip tooltip-bottom tooltip-success" data-tip={user?.displayName}>
+                  <img
+                    className="rounded-full h-8 w-8 mx-1"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                </div>
               </>
               <Link onClick={handleLogout}>
                 <button className="mr-4 lg:mr-24 border  py-1 px-3 rounded-md hover:text-white hover:bg-black  border-black text-black">
