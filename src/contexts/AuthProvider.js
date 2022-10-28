@@ -20,13 +20,15 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // create user with provider like google, facebook, github
+  // google
   const providerLogin = (provider) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
     };
     
     //facebook
-    const porviderLoginFacebook = (provider) => {
+  const providerLoginFacebook = (provider) => {
+      setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
@@ -55,16 +57,17 @@ const AuthProvider = ({ children }) => {
     return sendEmailVerification(auth.currentUser);
   };
 
-  // observer of the state change....if state null, state will be cleaned instant.
+  // observer of the state change
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
         if (currentUser === null || currentUser.emailVerified) {
             setUser(currentUser)
         }
       setLoading(false)
     });
     return () => unSubscribe();
-  }, []);
+  }, [])
+   
 
   // auth info object
   const authInfo = {
@@ -77,7 +80,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     updateUserProfile,
     verifyEmail,
-    porviderLoginFacebook,
+    providerLoginFacebook,
   };
 
   return (

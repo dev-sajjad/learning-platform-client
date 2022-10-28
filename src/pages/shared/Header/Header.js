@@ -3,8 +3,13 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { FaUserAlt } from "react-icons/fa";
+import { CiLight } from "react-icons/ci";
+import { BsMoonStars } from "react-icons/bs";
+import { useState } from "react";
 
 const Header = () => {
+  const [dark, setDark] = useState(false);
+
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
@@ -40,7 +45,7 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-100 rounded-box w-52"
             >
-              <li className="text-black">
+              <li className="text-black p-0">
                 <Link to="/home">Home</Link>
               </li>
               <li className="text-black">
@@ -52,6 +57,23 @@ const Header = () => {
               </li>
               <li className="text-black">
                 <Link to="/faq">FAQ</Link>
+              </li>
+              <li>
+                <div class="form-control">
+                  <label class="label cursor-pointer">
+                    <span class="label-text">
+                      <BsMoonStars className=" text-slate-800 text-2xl" />
+                    </span>
+                    <input
+                      type="checkbox"
+                      class="toggle toggle-accent"
+                      checked
+                    />
+                    <span class="label-text">
+                      <CiLight className=" text-orange-500 text-2xl" />
+                    </span>
+                  </label>
+                </div>
               </li>
             </ul>
           </div>
@@ -74,18 +96,24 @@ const Header = () => {
             <li className="text-black">
               <Link to="/faq">FAQ</Link>
             </li>
+            <li></li>
           </ul>
+         
         </div>
         <div className="navbar-end">
           {user?.email ? (
             <div className="flex items-center">
-              <img
-                className="rounded-full h-8 w-8 mr-1"
-                src={user.photoURL}
-                alt=""
-              />
+              <>
+                {" "}
+                <p className="text-black font-thin">{user?.displayName}</p>
+                <img
+                  className="rounded-full h-8 w-8 mx-1"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              </>
               <Link onClick={handleLogout}>
-                <button className="mr-4 lg:mr-24 border py-1.5 px-4 rounded-md hover:text-white hover:bg-black hover:border-none border-black text-black">
+                <button className="mr-4 lg:mr-24 border  py-1 px-3 rounded-md hover:text-white hover:bg-black  border-black text-black">
                   LogOut
                 </button>
               </Link>
